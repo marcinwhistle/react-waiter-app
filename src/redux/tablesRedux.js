@@ -1,5 +1,8 @@
 // selectors
-
+export const getAllTables = ({ tables }) => tables;
+export const getTableById = ({ tables }, id) => {
+  tables.find((table) => table.id === id);
+};
 //actions
 const createActionName = (actionName) => `app/tables.${actionName}`;
 const UPDATE_TABLES = createActionName('UPDATE_TABLES');
@@ -8,7 +11,7 @@ const UPDATE_TABLES = createActionName('UPDATE_TABLES');
 export const updateTables = (payload) => ({ type: UPDATE_TABLES, payload });
 export const fetchTables = () => {
   return (dispatch) => {
-    fetch('http://localserver3131/api/tables')
+    fetch('http://localhost:3131/api/tables')
       .then((res) => res.json())
       .then((tables) => dispatch(updateTables(tables)));
   };
