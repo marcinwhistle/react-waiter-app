@@ -8,10 +8,12 @@ import EditTableForm from './components/features/EditTableForm/EditTableForm';
 import { fetchTables } from './redux/tablesRedux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { fetchStatus } from './redux/statusRedux';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => dispatch(fetchTables()), [dispatch]);
+  useEffect(() => dispatch(fetchStatus()), [dispatch]);
 
   return (
     <Container>
