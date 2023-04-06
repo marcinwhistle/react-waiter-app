@@ -4,16 +4,15 @@ Application for waiters to handle orders written in React.
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- React
+- Redux
+- React Bootstrap
 
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Render tables from Redux store
+- Edit table
+- WEB API
 
 
 ## Screenshots
@@ -21,5 +20,6 @@ List the ready features here:
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
-
+Created by Marcin Gwizdek - feel free to contact me!
+@ kontakt@marcingwizdek.pl
+https://www.linkedin.com/in/marcin-gwizdek/
