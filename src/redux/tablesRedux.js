@@ -13,7 +13,7 @@ export const updateTables = (payload) => ({ type: UPDATE_TABLES, payload });
 export const editTable = (payload) => ({ type: EDIT_TABLE, payload });
 export const fetchTables = () => {
   return (dispatch) => {
-    fetch(API_URL)
+    fetch(API_URL + '/tables')
       .then((res) => res.json())
       .then((tables) => dispatch(updateTables(tables)));
   };
