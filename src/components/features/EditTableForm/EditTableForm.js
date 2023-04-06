@@ -8,26 +8,17 @@ import { Button } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getStatus } from '../../../redux/statusRedux';
-import { useEffect } from 'react';
-import { fetchStatus } from '../../../redux/statusRedux';
-import { fetchTables } from '../../../redux/tablesRedux';
-import { getAllTables } from '../../../redux/tablesRedux';
 const EditTableForm = () => {
   const dispatch = useDispatch();
-  useEffect(() => dispatch(fetchTables()), [dispatch]);
-  useEffect(() => dispatch(fetchStatus()), [dispatch]);
   const { id } = useParams();
   const tableData = useSelector((state) => getTableById(state, id));
-  const tables = useSelector(getAllTables);
   const statuses = useSelector((state) => getStatus(state));
-  const [status, setStatus] = useState(tableData?.status || '');
-  const [peopleAmount, setPeopleAmount] = useState(
-    tableData?.peopleAmount || '0'
-  );
+  const [status, setStatus] = useState(tableData.status);
+  const [peopleAmount, setPeopleAmount] = useState(tableData?.peopleAmount);
   const [maxPeopleAmount, setMaxPeopleAmount] = useState(
-    tableData?.maxPeopleAmount || '0'
+    tableData.maxPeopleAmount
   );
-  const [bill, setBill] = useState(tableData?.bill || '0');
+  const [bill, setBill] = useState(tableData.bill);
 
   const navigate = useNavigate();
 
@@ -44,7 +35,7 @@ const EditTableForm = () => {
   if (maxPeopleAmount < 0) setMaxPeopleAmount('0');
   if (peopleAmount > maxPeopleAmount) setMaxPeopleAmount(peopleAmount);
 
-  if (tables.length && !tableData) {
+  if (!tableData) {
     return <Navigate to='/' />;
   }
   return (
