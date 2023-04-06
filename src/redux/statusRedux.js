@@ -14,7 +14,7 @@ export const updateStatus = (payload) => ({
 });
 export const fetchStatus = () => {
   return (dispatch) => {
-    fetch(API_URL)
+    fetch(API_URL + '/status')
       .then((res) => res.json())
       .then((status) => dispatch(updateStatus(status)));
   };

@@ -1,5 +1,5 @@
 const initialState = {
   tables: [],
-  status: ['Busy', 'Free', 'Cleaning', 'Reserved'],
+  status: [],
 };
 export default initialState;
