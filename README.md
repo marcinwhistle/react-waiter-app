@@ -16,7 +16,7 @@ Application for waiters to handle orders written in React.
 
 
 ## Screenshots
-![homepage](./waiter app.png)
+![homepage](https://github.com/Lemarczini21/react-waiter-app/blob/main/waiter%20app.png?raw=true)
 
 
 ## Contact
