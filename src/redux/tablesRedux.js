@@ -34,7 +34,7 @@ export const editTableRequest = (editData) => {
         bill: editData.bill,
       }),
     };
-    fetch(API_URL + editData.id, options).then(() =>
+    fetch(API_URL + '/tables/' + editData.id, options).then(() =>
       dispatch(editTable(editData))
     );
   };
