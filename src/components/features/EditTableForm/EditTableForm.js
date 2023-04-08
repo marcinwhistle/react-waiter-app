@@ -62,13 +62,15 @@ const EditTableForm = () => {
           <Form.Label className='mx-2'>People:</Form.Label>
           <Col>
             <Form.Control
-              value={status === 'Busy' ? peopleAmount : 0}
+              type='number'
+              value={peopleAmount}
               onChange={(e) => setPeopleAmount(e.target.value)}
             ></Form.Control>{' '}
           </Col>
           <span className='mx-2'>/</span>
           <Col>
             <Form.Control
+              type='number'
               value={maxPeopleAmount}
               onChange={(e) => setMaxPeopleAmount(e.target.value)}
             />
@@ -79,6 +81,7 @@ const EditTableForm = () => {
             <Form.Label className='mx-2'>Bill:</Form.Label>
             <Col sm={4} className='mx-4'>
               <Form.Control
+                type='number'
                 value={status === 'Busy' ? bill : 0}
                 onChange={(e) => setBill(e.target.value)}
               />
