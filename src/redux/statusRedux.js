@@ -4,7 +4,7 @@ import { API_URL } from '../config';
 export const getStatus = ({ status }) => status;
 
 //actions
-const createActionName = (actionName) => `app/statuses.${actionName}`;
+const createActionName = (actionName) => `app/status.${actionName}`;
 const UPDATE_STATUS = createActionName('UPDATE_STATUS');
 
 //action creators
