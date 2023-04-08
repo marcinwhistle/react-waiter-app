@@ -17,12 +17,14 @@ const EditTableForm = () => {
   const { id } = useParams();
   const tableData = useSelector((state) => getTableById(state, id));
   const statuses = useSelector((state) => getStatus(state));
-  const [status, setStatus] = useState(tableData.status);
-  const [peopleAmount, setPeopleAmount] = useState(tableData.peopleAmount);
-  const [maxPeopleAmount, setMaxPeopleAmount] = useState(
-    tableData.maxPeopleAmount
+  const [status, setStatus] = useState(tableData?.status || '');
+  const [peopleAmount, setPeopleAmount] = useState(
+    tableData?.peopleAmount || ''
   );
-  const [bill, setBill] = useState(tableData.bill);
+  const [maxPeopleAmount, setMaxPeopleAmount] = useState(
+    tableData?.maxPeopleAmount || ''
+  );
+  const [bill, setBill] = useState(tableData?.bill || '');
 
   const navigate = useNavigate();
 
