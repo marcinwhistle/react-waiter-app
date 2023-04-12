@@ -50,7 +50,7 @@ const EditTableForm = () => {
         <Form.Group className='d-flex align-items-center w-50 mb-3'>
           <Form.Label className='mx-2'>Status:</Form.Label>
           <Form.Select onChange={(e) => setStatus(e.target.value)}>
-            <option disabled>{status}</option>
+            <option selected>Current: {status}</option>
             {statuses.map((s) => (
               <option key={s} value={s}>
                 {s}
