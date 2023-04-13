@@ -52,11 +52,10 @@ const EditTableForm = () => {
     );
     navigate('/');
   };
-  if (peopleAmount > 10) setPeopleAmount(10);
-  if (peopleAmount < 0) setPeopleAmount(0);
-  if (peopleAmount > maxPeopleAmount) setMaxPeopleAmount(peopleAmount);
-  if (maxPeopleAmount > 10) setMaxPeopleAmount(10);
-  if (maxPeopleAmount < 0) setMaxPeopleAmount(0);
+
+  useEffect(() => {
+    if (peopleAmount > maxPeopleAmount) setMaxPeopleAmount(peopleAmount);
+  }, [peopleAmount, maxPeopleAmount]);
 
   if (!tableData) {
     return <p>Loading...</p>;
@@ -71,7 +70,7 @@ const EditTableForm = () => {
           <Form.Label className='mx-2'>Status:</Form.Label>
           <Form.Select onChange={(e) => setStatus(e.target.value)}>
             {statuses.map((s) => (
-              <option key={s} value={s} selected={s === status}>
+              <option key={s} value={s} defaultValue={s === status}>
                 {s}
               </option>
             ))}
@@ -82,6 +81,8 @@ const EditTableForm = () => {
           <Col>
             <Form.Control
               type='number'
+              min='0'
+              max='10'
               value={peopleAmount}
               onChange={(e) => setPeopleAmount(e.target.value)}
             ></Form.Control>{' '}
@@ -90,6 +91,8 @@ const EditTableForm = () => {
           <Col>
             <Form.Control
               type='number'
+              min='0'
+              max='10'
               value={maxPeopleAmount}
               onChange={(e) => setMaxPeopleAmount(e.target.value)}
             />
