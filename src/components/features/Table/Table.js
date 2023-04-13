@@ -1,12 +1,12 @@
 import { Col, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { fetchTables } from '../../../redux/tablesRedux';
-import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+// import { fetchTables } from '../../../redux/tablesRedux';
+// import { useDispatch } from 'react-redux';
 
 const Table = ({ status, id }) => {
-  const dispatch = useDispatch();
-  useEffect(() => dispatch(fetchTables()), [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => dispatch(fetchTables()), [dispatch]);
   return (
     <Row>
       <Row className='align-items-end mb-3'>

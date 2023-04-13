@@ -1,7 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTableById, editTableRequest } from '../../../redux/tablesRedux';
+import {
+  getTableById,
+  editTableRequest,
+  getAllTables,
+} from '../../../redux/tablesRedux';
 import { Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
@@ -9,29 +13,42 @@ import { Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getStatus } from '../../../redux/statusRedux';
 import { useEffect } from 'react';
-import { fetchTables } from '../../../redux/tablesRedux';
+// import { fetchTables } from '../../../redux/tablesRedux';
 
 const EditTableForm = () => {
   const dispatch = useDispatch();
-  useEffect(() => dispatch(fetchTables()), [dispatch]);
+  // useEffect(() => dispatch(fetchTables()), [dispatch]);
   const { id } = useParams();
+  const tables = useSelector(getAllTables);
   const tableData = useSelector((state) => getTableById(state, id));
-  const statuses = useSelector((state) => getStatus(state));
-  const [status, setStatus] = useState(tableData?.status || '');
-  const [peopleAmount, setPeopleAmount] = useState(
-    tableData?.peopleAmount || ''
-  );
-  const [maxPeopleAmount, setMaxPeopleAmount] = useState(
-    tableData?.maxPeopleAmount || ''
-  );
-  const [bill, setBill] = useState(tableData?.bill || '');
+  const statuses = useSelector(getStatus);
+
+  const [status, setStatus] = useState(null);
+  const [peopleAmount, setPeopleAmount] = useState(0);
+  const [maxPeopleAmount, setMaxPeopleAmount] = useState(0);
+  const [bill, setBill] = useState(0);
+
+  useEffect(() => {
+    if (tableData) {
+      setStatus(tableData.status);
+      setPeopleAmount(tableData.peopleAmount);
+      setMaxPeopleAmount(tableData.maxPeopleAmount);
+      setBill(tableData.bill);
+    }
+  }, [tableData]);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
-      editTableRequest({ status, peopleAmount, maxPeopleAmount, bill, id })
+      editTableRequest({
+        status,
+        peopleAmount,
+        maxPeopleAmount,
+        bill: status === 'Busy' ? bill : 0,
+        id,
+      })
     );
     navigate('/');
   };
@@ -42,6 +59,9 @@ const EditTableForm = () => {
   if (maxPeopleAmount < 0) setMaxPeopleAmount(0);
 
   if (!tableData) {
+    return <p>Loading...</p>;
+  }
+  if (tables.length && !tableData) {
     return <Navigate to='/' />;
   }
   return (
