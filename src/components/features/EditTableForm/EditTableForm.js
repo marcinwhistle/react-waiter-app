@@ -13,11 +13,11 @@ import { Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getStatus } from '../../../redux/statusRedux';
 import { useEffect } from 'react';
-// import { fetchTables } from '../../../redux/tablesRedux';
+import { fetchTables } from '../../../redux/tablesRedux';
 
 const EditTableForm = () => {
   const dispatch = useDispatch();
-  // useEffect(() => dispatch(fetchTables()), [dispatch]);
+  useEffect(() => dispatch(fetchTables()), [dispatch]);
   const { id } = useParams();
   const tables = useSelector(getAllTables);
   const tableData = useSelector((state) => getTableById(state, id));
