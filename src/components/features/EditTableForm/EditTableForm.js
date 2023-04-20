@@ -54,8 +54,9 @@ const EditTableForm = () => {
   };
 
   useEffect(() => {
-    if (peopleAmount > maxPeopleAmount) setMaxPeopleAmount(peopleAmount);
-  }, [peopleAmount, maxPeopleAmount]);
+    if (peopleAmount > maxPeopleAmount)
+      setPeopleAmount(maxPeopleAmount || peopleAmount);
+  }, [maxPeopleAmount, peopleAmount]);
 
   if (!tableData) {
     return <p>Loading...</p>;
@@ -81,8 +82,8 @@ const EditTableForm = () => {
           <Col>
             <Form.Control
               type='number'
-              min='0'
-              max='10'
+              min={0}
+              max={maxPeopleAmount}
               value={peopleAmount}
               onChange={(e) => setPeopleAmount(e.target.value)}
             ></Form.Control>{' '}
@@ -91,8 +92,8 @@ const EditTableForm = () => {
           <Col>
             <Form.Control
               type='number'
-              min='0'
-              max='10'
+              min={1}
+              max={10}
               value={maxPeopleAmount}
               onChange={(e) => setMaxPeopleAmount(e.target.value)}
             />

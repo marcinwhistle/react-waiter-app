@@ -3,8 +3,8 @@
     {
       "id": "1",
       "status": "Cleaning",
-      "peopleAmount": "10",
-      "maxPeopleAmount": "9",
+      "peopleAmount": "3",
+      "maxPeopleAmount": "4",
       "bill": 0
     },
     {
