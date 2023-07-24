@@ -3,14 +3,14 @@
     {
       "id": "1",
       "status": "Cleaning",
-      "peopleAmount": "10",
-      "maxPeopleAmount": "10",
+      "peopleAmount": "6",
+      "maxPeopleAmount": "6",
       "bill": 0
     },
     {
       "id": "2",
-      "status": "Free",
-      "peopleAmount": "3",
+      "status": "Cleaning",
+      "peopleAmount": 3,
       "maxPeopleAmount": 3,
       "bill": 0
     },

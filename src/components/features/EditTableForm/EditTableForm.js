@@ -37,6 +37,11 @@ const EditTableForm = () => {
     }
   }, [tableData]);
 
+  useEffect(() => {
+    if (status === 'Free' || status === 'Cleaning') {
+      setPeopleAmount(0);
+    }
+  }, [status]);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
