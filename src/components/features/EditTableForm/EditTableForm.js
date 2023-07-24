@@ -69,9 +69,13 @@ const EditTableForm = () => {
       <Form onSubmit={handleSubmit}>
         <Form.Group className='d-flex align-items-center w-50 mb-3'>
           <Form.Label className='mx-2'>Status:</Form.Label>
-          <Form.Select onChange={(e) => setStatus(e.target.value)}>
+          <Form.Select
+            onChange={(e) => setStatus(e.target.value)}
+            defaultValue={tableData.status}
+          >
+            {/* DOkumentacja  zeby dodać defaultową wartość */}
             {statuses.map((s) => (
-              <option key={s} value={s} defaultValue={s === status}>
+              <option key={s} value={s}>
                 {s}
               </option>
             ))}
