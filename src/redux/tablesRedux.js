@@ -45,9 +45,12 @@ const tablesReducer = (statePart = [], action) => {
     case UPDATE_TABLES:
       return [...action.payload];
     case EDIT_TABLE:
-      return [
-        statePart.map((table) => (table.id === action.id ? action : table)),
-      ];
+      return statePart.map((table) =>
+        table.id === action.payload.id ? action.payload : table
+      );
+    // [
+    //   statePart.map((table) => (table.id === action.id ? action : table)),
+    // ];
     default:
       return statePart;
   }

@@ -3,20 +3,20 @@
     {
       "id": "1",
       "status": "Cleaning",
-      "peopleAmount": "3",
-      "maxPeopleAmount": "4",
+      "peopleAmount": "10",
+      "maxPeopleAmount": "10",
       "bill": 0
     },
     {
       "id": "2",
-      "status": "Busy",
+      "status": "Free",
       "peopleAmount": "3",
       "maxPeopleAmount": 3,
-      "bill": ""
+      "bill": 0
     },
     {
       "id": "3",
-      "status": "Free",
+      "status": "Reserved",
       "peopleAmount": 2,
       "maxPeopleAmount": 3,
       "bill": 0
